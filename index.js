@@ -36,10 +36,20 @@ for(var i=0;i<drums.length;i++){
     drums[i].addEventListener("click",function(){
        var drum=this.innerHTML;
        playsound(drum);
+       animate(drum);
        
     })
 }
 document.addEventListener("keydown",function(event){
     var drum=event.key;
     playsound(drum);
+    animate(drum);
 })
+function animate(drum){
+    var f=document.querySelector("."+drum);
+    f.classList.add("pressed");
+    setTimeout(function(){
+        f.classList.remove("pressed");
+    },300);
+
+}
